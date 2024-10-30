@@ -45,9 +45,6 @@ class Bullets {
         this.bulletVel = 5
 
         this.init()
-
-        console.log(this.playerDirection)
-
     }
 
 
@@ -58,7 +55,6 @@ class Bullets {
         this.bulletElement.style.position = "absolute"
         this.bulletElement.style.borderRadius = "50%"
         this.bulletElement.style.backgroundColor = "purple"
-
 
         this.bulletElement.style.width = `${this.bulletSize.width}px`
         this.bulletElement.style.height = `${this.bulletSize.height}px`
