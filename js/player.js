@@ -2,7 +2,7 @@ class Player {
 
     constructor(gameSize) {
 
-        this.gameSize = gameSize;
+       this.gameSize = gameSize
 
         this.bullets = []
 
@@ -92,6 +92,7 @@ class Player {
         this.bullets.push(new Bullets(this.playerPosition, this.playerSize, this.playerDirection));
     }
 
+    
     clearBullets() {
         this.bullets.forEach((eachBullet, index) => {
             if (
@@ -106,5 +107,8 @@ class Player {
             }
         })
     }
-
+    
+    setOpacity(level) {
+        this.playerElement.style.opacity = level
+    }
 }
