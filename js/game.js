@@ -5,13 +5,13 @@ const Game = {
         height: window.innerHeight
     },
 
-    
+
     framesCounter: 0,
-    
+
     background: undefined,
     player: undefined,
     stats: undefined,
-    
+
     enemies: [],
     bigEnemies: [],
     ring: undefined,
@@ -25,9 +25,9 @@ const Game = {
     canCollide: true,
     inmunityFrames: 500,
 
-    totalLives: 3,
+    totalLives: 10000,
     totalPoints: 0,
-    maxPoints:  localStorage.getItem('maxPoints'),
+    maxPoints: localStorage.getItem('maxPoints'),
 
 
 
@@ -81,8 +81,8 @@ const Game = {
 
     createElements() {
         this.background = new Background(this.gameSize)
-        this.player = new Player(this.gameSize, this.canCollide)
-        this.stats = new Stats (this.gameSize, this.totalLives, this.totalPoints, this.maxPoints)
+        this.player = new Player(this.gameSize, this.totalLives)
+        this.stats = new Stats(this.gameSize, this.totalLives, this.totalPoints, this.maxPoints)
     },
 
     startGameLoop() {
@@ -90,7 +90,7 @@ const Game = {
         setInterval(() => {
             if (this.framesCounter > 5000) {
                 this.framesCounter = 0
-            } 
+            }
             else {
                 this.framesCounter++
             }
@@ -100,8 +100,10 @@ const Game = {
             this.generateEnemies()
             this.generateRing()
             this.handleInmunity()
+            this.updateStats()
+            // this.updateEnemiesDensities()
 
-            if (this.isCollision()) this.gameOver() 
+            if (this.isCollision() && this.totalLives <= 0) this.gameOver()
 
         }, 10)
 
@@ -123,8 +125,8 @@ const Game = {
         }
     },
 
-    generateRing(){
-        if (this.canCollide && this.framesCounter % this.ringDensity === 0){
+    generateRing() {
+        if (this.canCollide && this.framesCounter % this.ringDensity === 0) {
             const newRing = new Ring(this.gameSize, this.playerPosition, this.playerSize)
             this.ring = newRing
             this.ringDensity = undefined
@@ -133,7 +135,7 @@ const Game = {
 
     clearAll() {
 
-        if (this.isRingCollected()){
+        if (this.isRingCollected()) {
             this.canCollide = false
             this.ring.ringElement.remove()
             this.ring = undefined
@@ -150,9 +152,6 @@ const Game = {
             ) {
                 this.enemies.splice(index, 1)
                 eachEnemy.enemyElement.remove()
-                this.increasePoints()
-
-                console.log('tienes', this.totalPoints)
             }
         })
 
@@ -180,12 +179,12 @@ const Game = {
         })
     },
 
-    handleInmunity(){
-        
-        if (!this.canCollide && this.inmunityFrames > 0){
-            this.inmunityFrames-- 
+    handleInmunity() {
+
+        if (!this.canCollide && this.inmunityFrames > 0) {
+            this.inmunityFrames--
             this.player.setOpacity(0.5)
-        }else if (!this.canCollide && this.inmunityFrames === 0){
+        } else if (!this.canCollide && this.inmunityFrames === 0) {
             this.inmunityFrames = 500
             this.canCollide = true
             this.player.setOpacity(1)
@@ -193,11 +192,39 @@ const Game = {
         }
     },
 
-    increasePoints(){
-        this.totalPoints++
+    updateStats() {
+        this.stats.update()
+        this.stats.updatePoints(this.totalPoints)
+        this.stats.updateLives(this.totalLives)
+    },
+
+    // updateEnemiesDensities() {
+
+
+    //     if (this.framesCounter % 1000 === 0) {
+    //         this.enemiesDensity -= 50
+    //         this.bigEnemiesDensity -= 100
+    //     }
+
+    //     console.log(this.framesCounter)
+    //     console.log(this.enemiesDensity)
+    //     console.log(this.bigEnemiesDensity)
+
+    // },
+
+
+    increasePoints(points) {
+        this.totalPoints += points
         localStorage.setItem('maxPoints', this.totalPoints)
     },
 
+    decreaseLives(lives) {
+
+        if (this.canCollide) {
+            this.totalLives -= lives
+            this.player.lifeBar.receivingDamage(this.totalLives)
+        }
+    },
 
     isCollision() {
         for (let i = 0; i < this.enemies.length; i++) {
@@ -208,7 +235,8 @@ const Game = {
                 this.player.playerPosition.left <= this.enemies[i].enemyPositionAbsolute.left + this.enemies[i].enemySize.width &&
                 this.player.playerPosition.top <= this.enemies[i].enemyPositionAbsolute.top + this.enemies[i].enemySize.height
             ) {
-                return true && this.canCollide
+                this.decreaseLives(15)
+                return true
             }
         }
 
@@ -220,20 +248,21 @@ const Game = {
                 this.player.playerPosition.left <= this.bigEnemies[i].bigEnemyPositionAbsolute.left + this.bigEnemies[i].bigEnemySize.width &&
                 this.player.playerPosition.top <= this.bigEnemies[i].bigEnemyPositionAbsolute.top + this.bigEnemies[i].bigEnemySize.height
             ) {
-                return true && this.canCollide
+                this.decreaseLives(50)
+                return true
             }
         }
     },
 
-    isRingCollected(){
-            if (this.ring &&
-                this.player.playerPosition.left + this.player.playerSize.width >= this.ring.ringPosition.left &&
-                this.player.playerPosition.top + this.player.playerSize.height >= this.ring.ringPosition.top &&
-                this.player.playerPosition.left <= this.ring.ringPosition.left + this.ring.ringSize.width &&
-                this.player.playerPosition.top <= this.ring.ringPosition.top + this.ring.ringSize.height
-            ) {
-                return true
-            }
+    isRingCollected() {
+        if (this.ring &&
+            this.player.playerPosition.left + this.player.playerSize.width >= this.ring.ringPosition.left &&
+            this.player.playerPosition.top + this.player.playerSize.height >= this.ring.ringPosition.top &&
+            this.player.playerPosition.left <= this.ring.ringPosition.left + this.ring.ringSize.width &&
+            this.player.playerPosition.top <= this.ring.ringPosition.top + this.ring.ringSize.height
+        ) {
+            return true
+        }
     },
 
     isEnemyDistroyed() {
@@ -249,13 +278,14 @@ const Game = {
                     this.player.bullets[j].bulletPosition.top <= this.enemies[i].enemyPositionAbsolute.top + this.enemies[i].enemySize.height
                 ) {
                     this.bulletColisionIndex = j
+                    this.increasePoints(1)
                     return true
                 }
             }
         }
     },
 
-    isBigEnemyDistroyed(){
+    isBigEnemyDistroyed() {
         for (let i = 0; i < this.bigEnemies.length; i++) {
 
             for (let j = 0; j < this.player.bullets.length; j++) {
@@ -266,10 +296,11 @@ const Game = {
                     this.player.bullets[j].bulletPosition.left <= this.bigEnemies[i].bigEnemyPositionAbsolute.left + this.bigEnemies[i].bigEnemySize.width &&
                     this.player.bullets[j].bulletPosition.top <= this.bigEnemies[i].bigEnemyPositionAbsolute.top + this.bigEnemies[i].bigEnemySize.height
                 ) {
-                    this.bulletColisionIndex = j 
+                    this.bulletColisionIndex = j
                     this.bigEnemies[i].lives--
-                    
+
                     if (this.bigEnemies[i].lives === 0) {
+                        this.increasePoints(10)
                         return true
                     }
                 }
@@ -278,7 +309,7 @@ const Game = {
     },
 
     gameOver() {
-        alert('MORITSTE')
+        alert('MORISTE')
     }
 
 }

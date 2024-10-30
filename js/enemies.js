@@ -9,8 +9,8 @@ class Enemies {
         this.direction = undefined
 
         this.enemySize = {
-            width: 100,
-            height: 100
+            width: 150,
+            height: 150
         }
 
         this.enemyPosition = [
@@ -20,13 +20,13 @@ class Enemies {
                 direction: 'down'
             },
             {
-                left: this.gameSize.width ,
+                left: this.gameSize.width,
                 top: Math.random() * this.gameSize.height,
                 direction: 'left'
             },
             {
                 left: Math.random() * this.gameSize.width,
-                top: this.gameSize.height ,
+                top: this.gameSize.height,
                 direction: 'up'
             },
             {
@@ -47,10 +47,10 @@ class Enemies {
 
     init() {
 
-        this.enemyElement = document.createElement('div')
+        this.enemyElement = document.createElement('img')
+        this.enemyElement.src = "./img/orco-izquierda.png"
 
         this.enemyElement.style.position = "absolute"
-        this.enemyElement.style.backgroundColor = "yellow"
 
         this.enemyElement.style.width = `${this.enemySize.width}px`
         this.enemyElement.style.height = `${this.enemySize.height}px`

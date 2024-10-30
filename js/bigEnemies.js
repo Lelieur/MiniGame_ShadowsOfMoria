@@ -10,8 +10,8 @@ class BigEnemies {
         this.lives = 10
 
         this.bigEnemySize = {
-            width: 250,
-            height: 250
+            width: 300,
+            height: 320
         }
 
         this.bigEnemyPosition = [
@@ -48,10 +48,10 @@ class BigEnemies {
 
     init() {
 
-        this.bigEnemyElement = document.createElement('div')
+        this.bigEnemyElement = document.createElement('img')
+        this.bigEnemyElement.src = "./img/troll.png"
 
         this.bigEnemyElement.style.position = "absolute"
-        this.bigEnemyElement.style.backgroundColor = "orange"
 
         this.bigEnemyElement.style.width = `${this.bigEnemySize.width}px`
         this.bigEnemyElement.style.height = `${this.bigEnemySize.height}px`

@@ -50,7 +50,8 @@ class Bullets {
 
     init() {
 
-        this.bulletElement = document.createElement("div")
+        this.bulletElement = document.createElement("img")
+        this.bulletElement.src = "./img/piedra.png"
 
         this.bulletElement.style.position = "absolute"
         this.bulletElement.style.borderRadius = "50%"
