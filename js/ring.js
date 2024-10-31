@@ -7,7 +7,7 @@ class Ring {
 
         this.ringSize = {
             width: 50,
-            height: 50
+            height: 30.47
         }
         this.ringPosition = {
             left: Math.random() * this.gameSize.width,

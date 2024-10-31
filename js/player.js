@@ -24,6 +24,8 @@ class Player {
 
         this.playerDirection = undefined
 
+        this.throwSound = new Audio ("./audio/throw.mp3")
+
         this.init()
 
     }
@@ -100,6 +102,10 @@ class Player {
 
     shoot() {
         this.bullets.push(new Bullets(this.playerPosition, this.playerSize, this.playerDirection));
+
+        this.throwSound.currentTime = 0
+        this.throwSound.volume = 0.3
+        this.throwSound.play()
     }
 
 

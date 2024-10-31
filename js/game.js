@@ -5,6 +5,10 @@ const Game = {
         height: window.innerHeight
     },
 
+    backgroundMusic: new Audio ("./audio/banda-sonora.mp3"),
+    enemyDeadSound: new Audio ("./audio/enemy-dead.mp3"),
+    trollSound: new Audio ("./audio/troll-sound.mp3"),
+    rockImpactSound: new Audio ("./audio/rock-impact.mp3"),
 
     framesCounter: 0,
 
@@ -40,7 +44,6 @@ const Game = {
     },
 
     init() {
-        console.log('la max puntuacion fue', localStorage.getItem('maxPoints'))
         this.setDimensions()
         this.setEventListeners()
         this.start()
@@ -75,6 +78,10 @@ const Game = {
     },
 
     start() {
+        this.backgroundMusic.play()
+        this.backgroundMusic.volume = 0.3
+        this.backgroundMusic.loop = true
+
         this.createElements()
         this.startGameLoop()
     },
@@ -101,9 +108,7 @@ const Game = {
             this.generateRing()
             this.handleInmunity()
             this.updateStats()
-            // this.updateEnemiesDensities()
-
-            if (this.isCollision() && this.totalLives <= 0) this.gameOver()
+            this.isCollision()
 
         }, 10)
 
@@ -122,6 +127,7 @@ const Game = {
         } else if (this.framesCounter % this.bigEnemiesDensity === 0) {
             const newBigEnemy = new BigEnemies(this.gameSize, this.playerPosition, this.playerSize)
             this.bigEnemies.push(newBigEnemy)
+            this.trollSound.play()
         }
     },
 
@@ -198,21 +204,6 @@ const Game = {
         this.stats.updateLives(this.totalLives)
     },
 
-    // updateEnemiesDensities() {
-
-
-    //     if (this.framesCounter % 1000 === 0) {
-    //         this.enemiesDensity -= 50
-    //         this.bigEnemiesDensity -= 100
-    //     }
-
-    //     console.log(this.framesCounter)
-    //     console.log(this.enemiesDensity)
-    //     console.log(this.bigEnemiesDensity)
-
-    // },
-
-
     increasePoints(points) {
         this.totalPoints += points
         localStorage.setItem('maxPoints', this.totalPoints)
@@ -223,6 +214,10 @@ const Game = {
         if (this.canCollide) {
             this.totalLives -= lives
             this.player.lifeBar.receivingDamage(this.totalLives)
+        }
+
+        if (this.totalLives <= 0){
+            this.gameOver()
         }
     },
 
@@ -279,6 +274,12 @@ const Game = {
                 ) {
                     this.bulletColisionIndex = j
                     this.increasePoints(1)
+
+                    this.rockImpactSound.load()
+                    this.rockImpactSound.play()
+
+                    this.enemyDeadSound.play()
+
                     return true
                 }
             }
@@ -299,6 +300,9 @@ const Game = {
                     this.bulletColisionIndex = j
                     this.bigEnemies[i].lives--
 
+                    this.rockImpactSound.currentTime = 0
+                    this.rockImpactSound.play()
+
                     if (this.bigEnemies[i].lives === 0) {
                         this.increasePoints(10)
                         return true
@@ -309,7 +313,14 @@ const Game = {
     },
 
     gameOver() {
-        alert('MORISTE')
-    }
 
+        this.backgroundMusic.pause()
+        this.enemyDeadSound.pause()
+        this.trollSound.pause()
+        this.rockImpactSound.pause()
+
+        GameOver.init() 
+        document.querySelector("#game-screen").remove()
+        this.totalLives = undefined  
+    }
 }

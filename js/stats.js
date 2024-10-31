@@ -36,7 +36,7 @@ class Stats {
         this.statsElement.style.top = `${this.statsPosition.top}px`
         this.statsElement.style.padding = `${this.statsPadding}px`
         this.statsElement.style.zIndex = `1000`
-        this.statsElement.style.backgroundColor = "green"
+
 
         document.querySelector("#game-screen").appendChild(this.statsElement)
 
@@ -48,17 +48,27 @@ class Stats {
         this.totalPointsElement.style.display = "flex"
         this.totalPointsElement.style.justifyContent = "space-around"
         this.totalPointsElement.style.alignItems = "center"
-        this.totalPointsElement.style.width = `${this.statsSize.width / 2}px`
+        this.totalPointsElement.style.width = `${this.statsSize.width / 2.3}px`
         this.totalPointsElement.style.height = `${this.statsSize.height}px`
-        this.totalPointsElement.style.backgroundColor = "pink"
+        this.totalPointsElement.style.backgroundImage = "url(./img/panel.png)"
+        this.totalPointsElement.style.backgroundSize = "100% 100%"
+
+
 
         this.statsElement.appendChild(this.totalPointsElement)
 
-        this.totalPiontsText = document.createElement("p")
-        this.totalPiontsText.classList.add('totalPoints')
-        this.totalPiontsText.innerText = `Puntos totales: ${this.totalPoints}`
-        this.totalPointsElement.appendChild(this.totalPiontsText)
+        this.totalPointsText = document.createElement("p")
 
+        this.totalPointsText.style.color = "white"
+        this.totalPointsText.style.textShadow = "1px 1px 1px black"
+        this.totalPointsText.style.fontFamily = "Pixelify Sans, sans-serif";
+        this.totalPointsText.style.textTransform = "uppercase";
+        this.totalPointsText.innerText = `PUNTUACIÓN MÁXIMA: ${this.totalPoints}`
+        this.totalPointsText.classList.add('totalPoints')
+        this.totalPointsText.innerText = `Puntos totales: ${this.totalPoints}`
+
+        this.totalPointsElement.appendChild(this.totalPointsText)
+        
 
         // MAX POINTS
 
@@ -68,15 +78,23 @@ class Stats {
         this.maxPointsElement.style.display = "flex"
         this.maxPointsElement.style.justifyContent = "space-around"
         this.maxPointsElement.style.alignItems = "center"
-        this.maxPointsElement.style.width = `${this.statsSize.width / 2}px`
+        this.maxPointsElement.style.width = `${this.statsSize.width / 2.3}px`
         this.maxPointsElement.style.height = `${this.statsSize.height}px`
-        this.maxPointsElement.style.backgroundColor = "blue"
+        this.maxPointsElement.style.backgroundImage = "url(./img/panel.png)"
+        this.maxPointsElement.style.backgroundSize = "100% 100%"
+
+        
 
         this.statsElement.appendChild(this.maxPointsElement)
 
-        this.maxPiontsText = document.createElement("p")
-        this.maxPiontsText.innerText = `Puntación máxima: ${this.maxPoints}`
-        this.maxPointsElement.appendChild(this.maxPiontsText)
+        this.maxPointsText = document.createElement("p")
+        this.maxPointsText.style.color = "white"
+        this.maxPointsText.style.textShadow = "1px 1px 1px black"
+        this.maxPointsText.style.fontFamily = "Pixelify Sans, sans-serif";
+        this.maxPointsText.style.textTransform = "uppercase";
+        this.maxPointsText.innerText = `PUNTUACIÓN MÁXIMA: ${this.maxPoints}`
+        this.maxPointsElement.appendChild(this.maxPointsText)
+        
     }
 
     updatePoints(newPoints) {
@@ -88,8 +106,8 @@ class Stats {
     }
 
     update() {
-        this.totalPiontsText.innerText = `Puntos totales: ${this.totalPoints}`
-        this.maxPiontsText.innerText = `Puntación máxima: ${this.maxPoints}`
+        this.totalPointsText.innerText = `Puntos totales: ${this.totalPoints}`
+        this.maxPointsText.innerText = `Puntación máxima: ${this.maxPoints}`
     }
 
 }
