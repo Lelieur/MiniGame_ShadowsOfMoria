@@ -5,10 +5,10 @@ const Game = {
         height: window.innerHeight
     },
 
-    backgroundMusic: new Audio ("./audio/banda-sonora.mp3"),
-    enemyDeadSound: new Audio ("./audio/enemy-dead.mp3"),
-    trollSound: new Audio ("./audio/troll-sound.mp3"),
-    rockImpactSound: new Audio ("./audio/rock-impact.mp3"),
+    backgroundMusic: new Audio("./audio/banda-sonora.mp3"),
+    enemyDeadSound: new Audio("./audio/enemy-dead.mp3"),
+    trollSound: new Audio("./audio/troll-sound.mp3"),
+    rockImpactSound: new Audio("./audio/rock-impact.mp3"),
 
     framesCounter: 0,
 
@@ -216,7 +216,7 @@ const Game = {
             this.player.lifeBar.receivingDamage(this.totalLives)
         }
 
-        if (this.totalLives <= 0){
+        if (this.totalLives <= 0) {
             this.gameOver()
         }
     },
@@ -275,9 +275,10 @@ const Game = {
                     this.bulletColisionIndex = j
                     this.increasePoints(1)
 
-                    this.rockImpactSound.load()
+                    this.rockImpactSound.currentTime = 0
                     this.rockImpactSound.play()
 
+                    this.enemyDeadSound.currentTime = 0
                     this.enemyDeadSound.play()
 
                     return true
@@ -319,8 +320,8 @@ const Game = {
         this.trollSound.pause()
         this.rockImpactSound.pause()
 
-        GameOver.init() 
+        GameOver.init()
         document.querySelector("#game-screen").remove()
-        this.totalLives = undefined  
+        this.totalLives = undefined
     }
 }

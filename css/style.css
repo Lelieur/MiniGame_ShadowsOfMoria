@@ -1,11 +1,15 @@
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
+}
+
+body {
+    cursor: url('./../img/Cursor.png') 2 2,
+        pointer;
 }
 
 #game-screen {
-
     position: relative;
     overflow: hidden;
+    cursor: none;
 }
-

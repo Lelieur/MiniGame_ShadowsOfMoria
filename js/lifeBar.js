@@ -84,8 +84,6 @@ class LifeBar {
 
     updateColor() {
         this.lifeBarElement.style.backgroundColor = `${this.backgroundColor}`
-
-        console.log(this.backgroundColor)
     }
 
     moveLeft() {
