@@ -1,9 +1,9 @@
+# 🕹️ **Shadows of Moria**
+
+
 <p align="center">
   <img src="https://res.cloudinary.com/dhluctrie/image/upload/v1736501114/Shadows_of_Moria_-_MockUp_qjbhky.jpg" alt="Shadows Of Moria MockUp">
 </p>
-
-
-# **Shadows of Moria**
 
 <p align="center">
   <a href="https://example.com](https://lelieur.github.io/MiniGame_ShadowsOfMoria/">Play de Game!</a>
@@ -24,44 +24,49 @@
 ---
 
 ## **Project Structure**  
-The project is structured around [description of main architecture or organization], with dedicated files and modules for [specific components or functionalities].  
-
-### **Key Components**  
-- **Component/File 1:** [Brief description of its purpose or functionality].  
-- **Component/File 2:** [Brief description of its purpose or functionality].  
-- **Component/File 3:** [Brief description of its purpose or functionality].  
-
----
+The project is organized around a **`Game`** object containing all the game logic and configuration and separate **`.js`** files defining each class.
 
 ## **Key Methods**  
-- **`methodName1()`**: [Description of what it does and its significance].  
-- **`methodName2()`**: [Description of what it does and its significance].  
-- **`methodName3()`**: [Description of what it does and its significance].  
-- **`methodName4()`**: [Description of what it does and its significance].  
+- **`init()`**: Sets up the game area size and events.  
+- **`start()`**: Starts the game by displaying the background, player, and score; and initializes the game loop using all its methods.  
+- **`setEventListeners()`**: Detects key presses for character movement and shooting.  
+- **`generateEnemies()`**: Generate all enemies at the start of the game.
+- **`generateRing()`**: Generate the ring at the start of the game.
+- **`handleInmunity()`**: Handle the character inmmunity when the Ring is collected.
+- **`isCollision()`**: Checks for collisions between the character and enemies, and between enemies and bullets.
+- **`isEnemyDistroyed()` & `isBigEnemyDistroyed()`**: Add points to the total score when enemies are destroyed.
+- **`moveAll()`**: Handle all game stats: 
+- **`clearAll()`**: Clears all elements from the DOM when enemies and bullets go off the screen or enemies are destroyed.
+- **`decreaseLives(lives)`**: Handle the character's live points when it collides with an enemy.
+- **`gameOver()`**: Ends the game and displays the Game Over screen.
+
 
 ---
 
 ## **Controls**  
-- **Control 1:** [Action performed].  
-- **Control 2:** [Action performed].  
-- **Control 3:** [Action performed].  
+- **Up Arrow:** Move and aim up.  
+- **Down Arro:** Move and aim down.  
+- **Right Arrow:** Move and aim rigth.  
+- **Left Arrow:** Move and aim left.  
+- **Space bar:** Shoot.  
+
 
 ---
 
 ## **Technologies Used**  
-- **Frontend:** HTML, CSS, JavaScript, React  
-- **Backend:** Node.js, Express, MongoDB, Mongoose  
-- **Other Tools:** Postman, Git, GitHub  
+- **HTML**
+- **CSS**
+- **JavaScript**
 
 ---
 
 ## **Installation and Setup**  
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/your-repository-name.git
+   git clone https://github.com/Lelieur/MiniGame_ShadowsOfMoria
 2. Navigate to the project directory:
    ```bash
-   cd your-repository-name
+   cd MiniGame_ShadowsOfMoria
 3. Install dependencies:
    ```bash
    npm install
@@ -73,7 +78,7 @@ ___
 
 ## **Credits**
 
-Developed by Lucas Lelieur and Aaron Ferrer.
+Developed by Lucas Lelieur and Marta Quiroga.
 
 
 
