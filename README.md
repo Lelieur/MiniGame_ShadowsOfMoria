@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://example.com](https://lelieur.github.io/MiniGame_ShadowsOfMoria/">Play de Game!</a>
+  <a href="https://lelieur.github.io/MiniGame_ShadowsOfMoria/">Play de Game!</a>
 </p>
 
 ## ⌨️ **Project Description**  
