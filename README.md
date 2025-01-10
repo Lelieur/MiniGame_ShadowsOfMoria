@@ -1,25 +1,25 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dhluctrie/image/upload/v1736500969/Shadows_of_Moria_-_MockUp_s4ft6r.png" alt="Shadows Of Moria MockUp">
+  <img src="https://res.cloudinary.com/dhluctrie/image/upload/v1736501114/Shadows_of_Moria_-_MockUp_qjbhky.jpg" alt="Shadows Of Moria MockUp">
 </p>
 
 
-# **Project Name**
+# **Shadows of Moria**
 
 <p align="center">
   <a href="https://example.com](https://lelieur.github.io/MiniGame_ShadowsOfMoria/">Play de Game!</a>
 </p>
 
 ## **Project Description**  
-*Project Name* is a [type of project] developed to [main purpose or goal]. The project leverages modern technologies and follows best practices to deliver a robust and engaging [user experience/application]. Whether you're [specific user type or audience], *Project Name* is designed to provide a [specific benefit or functionality].  
+*Shadows of Moria* is a dynamic arcade game developed by **Marta Quiroga** and **Lucas Lelieur**. The objective is to survive waves of enemies, earn points, and avoid hazards. Set in the world of J.R.R Tolkien's 'The Lord of the Rings', the character, Frodo, will be able to use the unique ring to become invisible to enemies and not take damage. If you are a fan of Middle-earth, you will undoubtedly want to help our protagonist survive the dangers lurking in the shadows of Moria.
 
 ---
 
 ## **Features**  
-- **Feature 1:** [Description of feature 1].  
-- **Feature 2:** [Description of feature 2].  
-- **Feature 3:** [Description of feature 3].  
-- **Feature 4:** [Description of feature 4].  
-- **Feature 5:** [Description of feature 5].  
+- **Dynamic enemies:** Orcs and Trolls. Trolls have more health points than orcs and do more damage to our character.  
+- **Simple and Intuitive Controls:** Use arrow keys to move and the space bar to shoot.
+- **Score and High Score Storage:** Keeps the highest score in the browser's local storage.
+- **Immersive Sound:** Includes sound effects triggered during various in-game events (shooting, damaging the enemy).
+- **Accurate Collision Detection:** Ensures realistic movements and adds strategic challenge.
 
 ---
 
