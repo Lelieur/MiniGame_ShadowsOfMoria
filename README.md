@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dhluctrie/image/upload/v1736500849/MockUp_tsovp1.png" alt="Shadows Of Moria MockUp" width="150">
+  <img src="https://res.cloudinary.com/dhluctrie/image/upload/v1736500849/MockUp_tsovp1.png" alt="Shadows Of Moria MockUp">
 </p>
 
 
