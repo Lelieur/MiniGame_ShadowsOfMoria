@@ -67,12 +67,9 @@ The project is organized around a **`Game`** object containing all the game logi
 2. Navigate to the project directory:
    ```bash
    cd MiniGame_ShadowsOfMoria
-3. Install dependencies:
+3. Open index.html:
    ```bash
-   npm install
-4. Start the development server:
-   ```bash
-   npm start
+   open index.html
 
 ___
 
