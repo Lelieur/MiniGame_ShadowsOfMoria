@@ -1,5 +1,9 @@
 # **Project Name**
 
+<p align="center">
+  <a href="[https://example.com](https://lelieur.github.io/MiniGame_ShadowsOfMoria/)">Play de Game!</a>
+</p>
+
 ## **Project Description**  
 *Project Name* is a [type of project] developed to [main purpose or goal]. The project leverages modern technologies and follows best practices to deliver a robust and engaging [user experience/application]. Whether you're [specific user type or audience], *Project Name* is designed to provide a [specific benefit or functionality].  
 
