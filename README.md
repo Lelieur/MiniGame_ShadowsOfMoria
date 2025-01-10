@@ -9,12 +9,12 @@
   <a href="https://example.com](https://lelieur.github.io/MiniGame_ShadowsOfMoria/">Play de Game!</a>
 </p>
 
-## **Project Description**  
+## ⌨️ **Project Description**  
 *Shadows of Moria* is a dynamic arcade game developed by **Marta Quiroga** and **Lucas Lelieur**. The objective is to survive waves of enemies, earn points, and avoid hazards. Set in the world of J.R.R Tolkien's 'The Lord of the Rings', the character, Frodo, will be able to use the unique ring to become invisible to enemies and not take damage. If you are a fan of Middle-earth, you will undoubtedly want to help our protagonist survive the dangers lurking in the shadows of Moria.
 
 ---
 
-## **Features**  
+## 🚀 **Features**  
 - **Dynamic enemies:** Orcs and Trolls. Trolls have more health points than orcs and do more damage to our character.  
 - **Simple and Intuitive Controls:** Use arrow keys to move and the space bar to shoot.
 - **Score and High Score Storage:** Keeps the highest score in the browser's local storage.
@@ -23,7 +23,7 @@
 
 ---
 
-## **Project Structure**  
+## 🧑‍💻 **Project Structure**  
 The project is organized around a **`Game`** object containing all the game logic and configuration and separate **`.js`** files defining each class.
 
 ## **Key Methods**  
@@ -43,9 +43,9 @@ The project is organized around a **`Game`** object containing all the game logi
 
 ---
 
-## **Controls**  
+## 🎮 **Controls**  
 - **Up Arrow:** Move and aim up.  
-- **Down Arro:** Move and aim down.  
+- **Down Arrow:** Move and aim down.  
 - **Right Arrow:** Move and aim rigth.  
 - **Left Arrow:** Move and aim left.  
 - **Space bar:** Shoot.  
@@ -53,14 +53,14 @@ The project is organized around a **`Game`** object containing all the game logi
 
 ---
 
-## **Technologies Used**  
+## 🛠️ **Technologies Used**  
 - **HTML**
 - **CSS**
 - **JavaScript**
 
 ---
 
-## **Installation and Setup**  
+## ⚡️ **Installation and Setup**  
 1. Clone the repository:  
    ```bash
    git clone https://github.com/Lelieur/MiniGame_ShadowsOfMoria
@@ -73,9 +73,9 @@ The project is organized around a **`Game`** object containing all the game logi
 
 ___
 
-## **Credits**
+## 💡 **Credits**
 
-Developed by Lucas Lelieur and Marta Quiroga.
+Developed by <a href="https://github.com/Lelieur">Lucas Lelieur</a> and <a href="https://github.com/martaqui">Marta Quiroga</a>.
 
 
 
