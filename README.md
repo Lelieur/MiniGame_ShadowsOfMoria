@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dhluctrie/image/upload/v1736500643/MockUp_kd8for.png" alt="Project Logo" width="150">
+  <img src="https://res.cloudinary.com/dhluctrie/image/upload/v1736500643/MockUp_kd8for.png" alt="Project Logo">
 </p>
 
 
